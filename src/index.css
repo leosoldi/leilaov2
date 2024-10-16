@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Importando os estilos base e os temas do slick-carousel */
+/* Coloque os imports no topo do arquivo */
+
+
+/* O restante do seu CSS pode vir abaixo */
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(205,92,223);
+    background: linear-gradient(90deg, rgba(205,92,223,1) 0%, rgba(64,41,179,1) 100%);
+}
+
