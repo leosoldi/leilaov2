@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Container } from "../../components/container"; 
+import { CarouselHome } from '../../components/carousel';
 import { TbTruckDelivery } from "react-icons/tb";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // Importa os estilos do carousel
-import { Carousel } from 'react-responsive-carousel'; // Importa o componente Carousel
 import smarthphone from '../../assets/smarthphones/smarth.png';
 import smarthphone1 from '../../assets/smarthphones/smarth1.png';
 import smarthphone2 from '../../assets/smarthphones/smarth2.png';
@@ -10,10 +10,8 @@ import smarthphone4 from '../../assets/smarthphones/smarth4.png';
 import tv from '../../assets/smarthphones/tv.png';
 import pc from '../../assets/smarthphones/pc.png';
 import relogio from '../../assets/smarthphones/relogio.png';
-import carouselImage from '../../assets/image.png';
 import { HiFire } from "react-icons/hi";
 import { FaTv } from "react-icons/fa";
-import { FaComputer } from "react-icons/fa6";
 import { GiDeliveryDrone } from "react-icons/gi";
 import { RiWebcamLine } from "react-icons/ri";
 import { PiSecurityCameraFill } from "react-icons/pi";
@@ -48,26 +46,8 @@ export function Home() {
 
   return (
     <div>
-      {/* Carousel */}
-      <Carousel
-        showArrows={true}
-        showThumbs={false}
-        infiniteLoop={true}
-        autoPlay={true}
-        interval={3000}
-        showStatus={false}
-        dynamicHeight={false}
-      >
-        <div>
-          <img src={carouselImage} alt="Imagem 1" className="w-full h-64 md:h-96 object-cover" />
-        </div>
-        <div>
-          <img src={carouselImage} alt="Imagem 2" className="w-full h-64 md:h-96 object-cover" />
-        </div>
-      </Carousel>
-
-      {/* Leilões Finalizados */}
-      <div className="container mt-5 p-5 mx-auto px-4 rounded-md max-w-7xl" style={{ backgroundColor: '#fefafa' }}>
+      <CarouselHome />
+      <Container>
         <div className="flex justify-center items-center mb-5 mt-3 text-2xl md:text-4xl font-bold">
           <span className="text-center" style={{ color: '#783DC3' }}>Leilões Finalizados</span>
         </div>
@@ -83,7 +63,7 @@ export function Home() {
                 <span>{product.name}, Tela 6,1", Black</span>
                 <p className="font-normal line-through">R$ {product.originalPrice.toLocaleString('pt-BR')}</p>
                 <div className="flex items-center space-x-2">
-                  <p>Leiloado por</p>
+                  <p className='italic'>Leiloado por</p>
                   <div
                     className="inline-block px-3 py-1 text-white font-bold text-lg rounded-full"
                     style={{ background: 'linear-gradient(90deg, rgba(205,92,223,1) 20%, rgba(64,41,179,1) 100%, rgba(210,92,223,1) 100%)' }}
@@ -105,10 +85,10 @@ export function Home() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
 
       {/* Categorias */}
-      <div className="container mt-5 p-5 mx-auto px-4 rounded-md max-w-7xl" style={{ backgroundColor: '#fefafa' }}>
+      <section className=" mt-5 p-5 mx-auto px-4 rounded-md max-w-7xl" style={{ backgroundColor: '#fefafa' }}>
         <div className="flex flex-1 justify-center items-center mb-5 mt-3 text-2xl font-bold gap-10">
           <FaTv size={50} className="rounded-full bg-purple-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Smart TV"/>
           <LuBedSingle size={50} className="rounded-full bg-purple-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Tudo para Seu Quarto"/>
@@ -125,7 +105,7 @@ export function Home() {
           <FaTools size={50} className="rounded-full bg-purple-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Ferramentas'/>
           <FaBath size={50} className="rounded-full bg-purple-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Banho'/>
         </div>
-      </div>
+      </section>
 
 
       {/* Leilões Ativos */}

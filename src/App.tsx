@@ -8,6 +8,7 @@ import { Layout } from './components/layout';
 import { NotFound } from './components/error/NotFound';
 import { UnderConstruction } from './components/error/Manutencao';  // Importa a página de Em Construção
 
+
 const router = createBrowserRouter([
   {
     element: <Layout />,

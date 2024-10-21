@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 
 export function Register() {
@@ -9,15 +8,3 @@ export function Register() {
   );
 }
 
-=======
-import React from 'react';
-
-export function Register() {
-  return (
-   <div>
-      <h1>Pagina Registro</h1>
-   </div>
-  );
-}
-
->>>>>>> 510d2df (PageLogin)
