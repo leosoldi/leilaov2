@@ -41,11 +41,14 @@ export function Header() {
                             className="relative mt-3 md:mt-0 cursor-pointer"
                             onClick={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
-                        >
+                        >   
+                        <Link to="login">
                             <div className="p-3 flex items-center gap-2 font-bold">
                                 <FaCircleUser color="#ffff" size={30} />
                                 <p>Entre | Cadastre-se</p> 
                             </div>
+                        </Link>
+                            
 
                             {/* Menu suspenso */}
                             {showMenu && (
