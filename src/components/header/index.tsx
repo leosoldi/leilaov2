@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import logo from '../../assets/PARTICIPE.png';
 import { Link } from "react-router-dom";
-import { FiUser, FiSearch, FiShoppingCart } from 'react-icons/fi';
+import { FiUser, FiSearch, FiShoppingCart  } from 'react-icons/fi';
 import { IoIosHeart } from "react-icons/io";
 import { FaCircleUser } from "react-icons/fa6";
 import { MdOutlinePhonePaused } from "react-icons/md";
 import { FaUser, FaGavel, FaShoppingCart, FaHeart, FaWallet, FaHeadset } from "react-icons/fa"; // Adicione os ícones
+import { TfiHeadphoneAlt } from "react-icons/tfi";
 
 export function Header() {
     const signed = true;
@@ -19,7 +20,7 @@ export function Header() {
     const handleMouseLeave = () => setShowMenu(true);
 
     return (
-        <div className='flex h-25 items-center px-3' style={{ background: 'linear-gradient(90deg, rgba(205,92,223,1) 20%, rgba(64,41,179,1) 50%, rgba(210,92,223,1) 100%)' }}>
+        <div className='flex h-25 items-center px-3' style={{ background: 'linear-gradient(90deg, #1e2c8a 90%, #5d3cdf 0%);' }}>
             <header className='flex flex-col md:flex-row justify-between w-full items-center'>
                 {/* Lado esquerdo: Logo e barra de pesquisa */}
                 <div className='flex flex-col md:flex-row items-center space-x-4 text-white font-semibold  md:w-auto md:mt-3 mb-1'>
@@ -89,7 +90,7 @@ export function Header() {
                         <FiShoppingCart size={30} color="#ffff" />
                     </Link>
                     <Link to="/support">
-                        <MdOutlinePhonePaused size={30} color="#ffff" />
+                        <TfiHeadphoneAlt size={30} color="#ffff" />
                     </Link>
                 </div>
             </header>

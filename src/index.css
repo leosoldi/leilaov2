@@ -9,7 +9,6 @@
 body {
     margin: 0;
     padding: 0;
-    background: rgb(205,92,223);
-    background: linear-gradient(90deg, rgba(205,92,223,1) 0%, rgba(64,41,179,1) 100%);
+    background: #1e2c8a;
+    background: linear-gradient(90deg, rgba(58, 51, 176) 60%, rgba(92, 60, 221) 100%, rgba(58, 51, 176) 100%);
 }
-
