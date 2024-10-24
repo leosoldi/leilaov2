@@ -96,7 +96,7 @@ export function Home() {
           <RiWebcamLine size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Webcan"/>
           <FcSmartphoneTablet size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Tablets"/>
           <MdSportsSoccer size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Esportes e Lazer"/>
-            <span className="text-center" style={{ color: '#783DC3' }}>Categorias</span>
+            <span className="text-center" style={{ color: '#3131a4' }}>Categorias</span>
           <PiSecurityCameraFill size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Cameras e Segurança"/>
           <GiConsoleController size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Games'/>
           <GiProcessor size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Periféricos'/>
