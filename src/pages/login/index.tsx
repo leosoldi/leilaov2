@@ -122,7 +122,6 @@ export function Login() {
         <Link to="/atendimento">
           Atendimento
         </Link>
-        
       </div>
     </div>
   );
