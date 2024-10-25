@@ -20,7 +20,7 @@ export function Header() {
     const handleMouseLeave = () => setShowMenu(true);
 
     return (
-        <div className='flex h-25 items-center px-3' style={{ background: 'linear-gradient(90deg, #1e2c8a 90%, #5d3cdf 0%);' }}>
+        <div className='flex h-25 items-center px-3' style={{ background: 'linear-gradient(90deg, #1e2c8a 90%, #5d3cdf 0%);'}}>
             <header className='flex flex-col md:flex-row justify-between w-full items-center'>
                 {/* Lado esquerdo: Logo e barra de pesquisa */}
                 <div className='flex flex-col md:flex-row items-center space-x-4 text-white font-semibold  md:w-auto md:mt-3 mb-1'>
