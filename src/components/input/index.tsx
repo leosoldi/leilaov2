@@ -9,13 +9,15 @@ interface InputProps{
     register: UseFormRegister<any> 
     error?: string
     rules?: RegisterOptions
+    label: string;
 }
 
 
 
-export function Input({ placeholder, type, name, id, register, error, rules }: InputProps) {
+export function Input({ placeholder, type, name, id, register, error, rules,label }: InputProps) {
     return(
         <div>
+            <label htmlFor="" className="m-3">{label}</label>
             <input 
             className="w-full p-3 pl-5 border border-gray-300 rounded-full"
             placeholder={placeholder}

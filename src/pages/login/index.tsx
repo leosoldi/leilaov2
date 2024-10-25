@@ -43,6 +43,7 @@ export function Login() {
   function handleLogin(data: FormData) {
     
     console.log(data)
+    alert('email:' + data.email + 'senha:' + data.password)
   }
 
   return (
@@ -99,7 +100,6 @@ export function Login() {
           <h4 className="font-bold text-center text-3xl mb-6" style={{color: "#3131a4"}}>Entre na sua conta</h4>
           <form className="flex flex-col gap-4" onSubmit={handleSubmit(handleLogin)}>
             <div>
-              <label htmlFor="email" className="block mb-2">E-mail</label>
               <Input 
                 placeholder="ex: email@email.com.br"
                 type="text" 
@@ -107,10 +107,10 @@ export function Login() {
                 id="email"
                 error={errors.email?.message}
                 register={register}
+                label="E-mail:"
                />
             </div>
             <div className="relative">
-              <label htmlFor="password" className="block mb-2">Senha</label>
               <Input 
                 placeholder="*****"
                 type={passwordVisible ? "text" : "password"} 
@@ -118,6 +118,7 @@ export function Login() {
                 id="password"
                 error={errors.password?.message}
                 register={register}
+                label="Senha:"
                />
               <div 
                 onClick={handleEyesOn}
@@ -147,7 +148,7 @@ export function Login() {
         </div>
       </div>
 
-      <div className='justify-center items-center flex flex-1 gap-8 text-white mt-8'>
+      <div className='justify-center items-center flex flex-1 gap-8 text-white mt-4'>
         <Link to="/">
           <img src={logo} alt="" />
         </Link>
