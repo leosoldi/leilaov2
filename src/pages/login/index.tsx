@@ -1,4 +1,4 @@
-import { FaCircleUser } from "react-icons/fa6";
+import logo from '../../assets/PARTICIPE.png';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import img_smarth4 from '../../assets/smarthphones/smarth4.png';
@@ -7,27 +7,42 @@ import img_smarth3 from '../../assets/smarthphones/smarth3.png';
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
-import logo from '../../assets/PARTICIPE.png';
+import { FaCircleUser } from "react-icons/fa6";
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
+import { Input } from '../../components/input';
+import { useForm } from "react-hook-form";
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const schema = z.object({
+  email: z.string().email("Insira um e-mail válido").nonempty("O campo é obrigatório"),
+  password: z.string().nonempty('O campo é obrigatório')
+});
+
+type FormData = z.infer<typeof schema>
 
 export function Login() {
+
+  const {register, handleSubmit, formState: {errors} } = useForm<FormData>({
+    resolver: zodResolver(schema),
+    mode: "onChange"
+  })
+
   const [finalizedProducts] = useState([
     { id: 1, name: "iPhone 16 Apple 128GB", price: 1495.25, originalPrice: 7019.10, discount: 78, available: false, image: img_smarth4 },
     { id: 2, name: "iPhone 16 Apple 128GB", price: 896.36, originalPrice: 5333.90, discount: 75, available: false, image: img_smarth6 },
     { id: 3, name: "iPhone 16 Apple 128GB", price: 1495.25, originalPrice: 7019.10, discount: 78, available: false, image: img_smarth3 }
   ]);
 
-  // Estado para controlar a visibilidade da senha
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  // Função para alternar a visibilidade da senha
   function handleEyesOn() {
-    setPasswordVisible(!passwordVisible); // Alterna o estado de visibilidade
+    setPasswordVisible(!passwordVisible);
   }
 
-  function handleLogin() {
+  function handleLogin(data: FormData) {
     
-    alert('Realizar login do Luizão')
+    console.log(data)
   }
 
   return (
@@ -41,13 +56,13 @@ export function Login() {
         {/* Seção do Carrossel */}
         <div className="lg:w-1/2 rounded-lg">
           <h4 className="font-bold text-center text-4xl mb-10" style={{color: "#3131a4"}}>Últimos Leilões</h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 justify-center items-center px-20 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 justify-center items-center px-20">
             {finalizedProducts.map((product, index) => (
               <div
                 key={product.id}
                 className={`rounded-lg p-5 shadow-2xl flex flex-col items-center transition duration-300 ease-in-out transform hover:scale-105 ${
                   index === 1 ? 'scale-110 -translate-y-4 mb-7' : ''
-                }`} // Aplica a escala e a elevação para o card do meio
+                }`}
               >
                 <div className="w-50 h-42 sm:w-50 sm:h-50">
                   <img src={product.image} alt="smartphone" className="object-contain w-full h-full mt-3" />
@@ -80,36 +95,45 @@ export function Login() {
           </div>
         </div>
 
-        {/* Seção de Login */}
         <div className="w-1/4 p-4 rounded-lg m-5 " style={{ maxWidth: '600px' }}>
           <h4 className="font-bold text-center text-3xl mb-6" style={{color: "#3131a4"}}>Entre na sua conta</h4>
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit(handleLogin)}>
             <div>
               <label htmlFor="email" className="block mb-2">E-mail</label>
-              <input type="text" id="email" className="w-full p-2 border border-gray-300 rounded-full" />
+              <Input 
+                placeholder="ex: email@email.com.br"
+                type="text" 
+                name="email"
+                id="email"
+                error={errors.email?.message}
+                register={register}
+               />
             </div>
             <div className="relative">
               <label htmlFor="password" className="block mb-2">Senha</label>
-              <input 
+              <Input 
+                placeholder="*****"
                 type={passwordVisible ? "text" : "password"} 
-                id="password" 
-                className="w-full p-2 border border-gray-300 rounded-full pr-10"
-              />
+                name="password"
+                id="password"
+                error={errors.password?.message}
+                register={register}
+               />
               <div 
-                onClick={handleEyesOn} // Alterna a visibilidade ao clicar
+                onClick={handleEyesOn}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer mt-4"
               >
-                {passwordVisible ? <FaEye size={20} /> : <FaEyeSlash size={20} />} {/* Alterna o ícone */}
+                {passwordVisible ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
               </div>
             </div>
             <p className="text-right text-normal">
               <Link to="/forgot-password" className='text-blue-600 font-bold'>Esqueceu a senha?</Link>
             </p>
-            <button type="submit" onClick={handleLogin} className="text-white py-2 rounded-full font-bold transition duration-300 ease-in-out transform hover:scale-105"  style={{ background: 'linear-gradient(90deg, rgba(58, 51, 176) 60%, rgba(136, 132, 224) 100%, rgba(58, 51, 176) 100%)' }} >ENTRE</button>
+            <button type="submit" className="text-white py-2 rounded-full font-bold transition duration-300 ease-in-out transform hover:scale-105"  style={{ background: 'linear-gradient(90deg, rgba(58, 51, 176) 60%, rgba(136, 132, 224) 100%, rgba(58, 51, 176) 100%)' }} >ENTRE</button>
             <div className="flex items-center justify-center my-4">
-              <div className="flex-1 relative" style={{ height: '2px', backgroundColor: '#3B82F6' }}></div> {/* Ajusta a altura da linha */}
+              <div className="flex-1 relative" style={{ height: '2px', backgroundColor: '#3B82F6' }}></div>
               <span className="px-4 text-blue-600 font-semibold">OU</span>
-              <div className="flex-1 relative" style={{ height: '2px', backgroundColor: '#3B82F6' }}></div> {/* Ajusta a altura da linha */}
+              <div className="flex-1 relative" style={{ height: '2px', backgroundColor: '#3B82F6' }}></div>
             </div>
           </form>
           <div className="flex flex-1 items-center justify-center gap-4 mt-4 ">
