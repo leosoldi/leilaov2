@@ -124,10 +124,6 @@ export function Login() {
         </Link>
         
       </div>
-      <div className='flex justify-center items-center py-4 text-white font-bold text-xl'>
-        <FaCircleUser size={40} className='mr-3' />
-        <span>Entre | Cadastre-se</span>
-      </div>
     </div>
   );
 }
