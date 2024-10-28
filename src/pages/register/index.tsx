@@ -290,7 +290,26 @@ export function Register() {
         </div>
         
       </div>
-      
+        <div className='justify-center items-center flex flex-1 gap-8 text-white mt-4'>
+          <Link to="/">
+            <img src={logo} alt="" />
+          </Link>
+          <Link to="/quem-somos">
+            Quem Somos?
+          </Link>
+          <Link to="/regulamento">
+            Regulamento
+          </Link>
+          <Link to="/acessibilidade">
+            Acessibilidade
+          </Link>
+          <Link to="/seguranca-privacidade">
+            Segurança & Privacidade
+          </Link>
+          <Link to="/atendimento">
+            Atendimento
+          </Link>
+        </div>
     </div>
   );
 }
