@@ -264,27 +264,33 @@ export function Register() {
               label='Confirmar Senha:'
             />
 
-          <div className="w-full mt-2" id='progress' style={{display: 'none'}}>
-              <label>Força da Senha:</label>
-              <div className="w-full h-2 bg-gray-200 mt-1">
-                <div
-                  className={`h-full ${passwordStrength >= 3 ? 'bg-green-500' : passwordStrength === 2 ? 'bg-yellow-500' : 'bg-red-500'}`}
-                  style={{ width: `${(passwordStrength / 4) * 100}%` }}
-                />
-              </div>
+            <div className="w-full mt-2" id='progress' style={{display: 'none'}}>
+                <label>Força da Senha:</label>
+                <div className="w-full h-2 bg-gray-200 mt-1">
+                  <div
+                    className={`h-full ${passwordStrength >= 3 ? 'bg-green-500' : passwordStrength === 2 ? 'bg-yellow-500' : 'bg-red-500'}`}
+                    style={{ width: `${(passwordStrength / 4) * 100}%` }}
+                  />
+                </div>
             </div>
-          </div>
 
-          <div className="justify-center items-center mt-10">
-            <button className="rounded-md bg-blue-600 py-3 px-6 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-blue-700 focus:shadow-none active:bg-blue-700 hover:bg-blue-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">
-              Cadastrar
-            </button>
-            <button className="rounded-md bg-green-600 py-3 px-6 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-green-700 focus:shadow-none active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">
-              Voltar
-            </button>
+            
+
           </div>
+          <div className="justify-center items-center mt-10">
+              <button className="rounded-md bg-blue-600 py-3 px-6 border border-transparent text-center text-lg text-white transition-all shadow-md hover:shadow-lg focus:bg-blue-700 focus:shadow-none active:bg-blue-700 hover:bg-blue-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">
+                Cadastrar
+              </button>
+              <Link to='/login'>
+                <button className="rounded-md bg-green-600 py-3 px-6 border border-transparent text-center text-lg text-white transition-all shadow-md hover:shadow-lg focus:bg-green-700 focus:shadow-none active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">
+                  Voltar
+                </button>
+              </Link>
+            </div>
         </div>
+        
       </div>
+      
     </div>
   );
 }
