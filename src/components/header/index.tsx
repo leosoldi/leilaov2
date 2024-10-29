@@ -7,6 +7,8 @@ import { FaCircleUser } from "react-icons/fa6";
 import { MdOutlinePhonePaused } from "react-icons/md";
 import { FaUser, FaGavel, FaShoppingCart, FaHeart, FaWallet, FaHeadset } from "react-icons/fa"; // Adicione os ícones
 import { TfiHeadphoneAlt } from "react-icons/tfi";
+import { RiAdminFill } from "react-icons/ri";
+
 
 export function Header() {
     const signed = true;
@@ -85,6 +87,9 @@ export function Header() {
                 <div className="flex items-center space-x-4 px-4 mt-4 md:mt-0 mb-1">
                     <Link to="/support">
                         <IoIosHeart size={30} color="#ffff" />
+                    </Link>
+                    <Link to="/dashboard">
+                        <RiAdminFill size={30} color="#ffff" />
                     </Link>
                     <Link to="/support">
                         <FiShoppingCart size={30} color="#ffff" />
