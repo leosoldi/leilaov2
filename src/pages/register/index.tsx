@@ -13,6 +13,8 @@ import { cpf as cpfValidator } from 'cpf-cnpj-validator';
 const schema = z.object({
   nome: z.string().nonempty('O campo Nome é obrigatório'),
   email: z.string().email('E-mail inválido'),
+  celular: z.string().nonempty('O campo Celular é obrigatório')
+  .min(11, 'Celular contém 11 digitos com o DDD'),
   cpf: z
     .string()
     .nonempty('O campo CPF é obrigatório')
@@ -139,6 +141,17 @@ export function Register() {
     setValue('cpf', value); 
   }
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value.replace(/\D/g, ''); 
+    if (value.length > 11) value = value.slice(0, 11); 
+    if (value.length > 6) {
+      value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+    } else if (value.length > 2) {
+      value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+    }
+    setValue('celular', value); 
+  };
+
   const password = watch('password');
 
 
@@ -174,6 +187,15 @@ export function Register() {
                 />
 
                 <Input
+                  placeholder='Apelido'
+                  type='text'
+                  name='apelido'
+                  id='apelido'
+                  register={register}
+                  label='Apelido (Como deseja ser chamado)'
+                />
+
+                <Input
                   placeholder='E-mail'
                   type='text'
                   name='email'
@@ -182,6 +204,18 @@ export function Register() {
                   error={errors.email?.message}
                   label='E-mail:'
                 />
+
+              <Input          
+                  placeholder='Celular'
+                  type='text'
+                  name='celular'
+                  id='celular'
+                  register={register}
+                  error={errors.celular?.message}
+                  label='Celular:'
+                  onChange={handlePhoneChange} // Aplica a máscara ao campo de celular
+                />  
+
 
                 <Input
                   placeholder='CPF'
