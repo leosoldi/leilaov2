@@ -61,7 +61,7 @@ export function Register() {
     mode: 'onChange',
   });
 
-  // Função para avaliar a força da senha
+  //Força da senha
   const evaluatePasswordStrength = (password: string) => {
     let strength = 0;
     if (password.length >= 8) strength += 1;
@@ -110,19 +110,19 @@ export function Register() {
 
     // Função para aplicar a máscara ao campo de CEP
     function handleCepChange(e: React.ChangeEvent<HTMLInputElement>) {
-      const value = e.target.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
-      const formattedCep = value.length > 5 ? `${value.slice(0, 5)}-${value.slice(5, 8)}` : value; // Aplica a máscara
-      e.target.value = formattedCep; // Atualiza o campo de entrada com o CEP formatado
-      setValue('cep', formattedCep); // Atualiza o valor do CEP no formulário
+      const value = e.target.value.replace(/\D/g, ''); 
+      const formattedCep = value.length > 5 ? `${value.slice(0, 5)}-${value.slice(5, 8)}` : value; 
+      e.target.value = formattedCep;
+      setValue('cep', formattedCep);
     }
 
     // Função para buscar o endereço ao perder o foco do campo de CEP
     function handleCepBlur(e: React.ChangeEvent<HTMLInputElement>) {
-      const cepValue = e.target.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+      const cepValue = e.target.value.replace(/\D/g, '');
       if (cepValue.length === 8) {
-        viacep(cepValue); // Chama a função viacep se o CEP estiver completo (8 dígitos)
+        viacep(cepValue); 
       } else {
-        setCepError('CEP inválido, deve conter 8 dígitos'); // Exibe erro se o CEP não tiver 8 dígitos
+        setCepError('CEP inválido, deve conter 8 dígitos');
       }
     }
 
@@ -140,6 +140,14 @@ export function Register() {
   }
 
   const password = watch('password');
+
+
+  function handleRegister(data: FormData) {
+    
+    console.log(data)
+    alert('email:' + data.email + 'senha:' + data.password)
+  }
+
   
   return (
     <div className='w-full min-h-screen flex flex-col' style={{ background: 'linear-gradient(90deg, rgba(58, 51, 176) 20%, rgba(92, 60, 221) 100%, rgba(58, 51, 176) 80%)' }}>
@@ -153,116 +161,116 @@ export function Register() {
           <h4 className='font-bold text-center text-4xl mb-10 mt-10 flex flex-1 justify-center gap-4 items-center' style={{ color: '#3131a4' }}>
             CADASTRO DE NOVA CONTA <GiArchiveRegister size={60} />
           </h4>
+          <form onSubmit={handleSubmit(handleRegister)}>
+              <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+                <Input
+                  placeholder='Nome Completo'
+                  type='text'
+                  name='nome'
+                  id='nome'
+                  register={register}
+                  error={errors.nome?.message}
+                  label='Nome Completo:'
+                />
 
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
-            <Input
-              placeholder='Nome Completo'
-              type='text'
-              name='nome'
-              id='nome'
-              register={register}
-              error={errors.nome?.message}
-              label='Nome Completo:'
-            />
+                <Input
+                  placeholder='E-mail'
+                  type='text'
+                  name='email'
+                  id='email'
+                  register={register}
+                  error={errors.email?.message}
+                  label='E-mail:'
+                />
 
-            <Input
-              placeholder='E-mail'
-              type='text'
-              name='email'
-              id='email'
-              register={register}
-              error={errors.email?.message}
-              label='E-mail:'
-            />
+                <Input
+                  placeholder='CPF'
+                  type='text'
+                  name='cpf'
+                  id='cpf'
+                  register={register}
+                  error={errors.cpf?.message}
+                  label='CPF:'
+                  value={cpfDisplay} 
+                  onChange={handleCpfChange} 
+                />
 
-            <Input
-              placeholder='CPF'
-              type='text'
-              name='cpf'
-              id='cpf'
-              register={register}
-              error={errors.cpf?.message}
-              label='CPF:'
-              value={cpfDisplay} 
-              onChange={handleCpfChange} 
-            />
+                <Input
+                  placeholder='CEP'
+                  type='text'
+                  name='cep'
+                  id='cep'
+                  register={register}
+                  error={errors.cep?.message || cepError}
+                  label='CEP:'
+                  onBlur={handleCepBlur}
+                  onChange={handleCepChange}
+                />
 
-            <Input
-              placeholder='CEP'
-              type='text'
-              name='cep'
-              id='cep'
-              register={register}
-              error={errors.cep?.message || cepError}
-              label='CEP:'
-              onBlur={handleCepBlur}
-              onChange={handleCepChange}
-            />
+                <Input
+                  placeholder='Rua'
+                  value={rua}
+                  type='text'
+                  name='rua'
+                  id='rua'
+                  register={register}
+                  error={errors.rua?.message}
+                  label='Rua:'
+                />
 
-            <Input
-              placeholder='Rua'
-              value={rua}
-              type='text'
-              name='rua'
-              id='rua'
-              register={register}
-              error={errors.rua?.message}
-              label='Rua:'
-            />
+                <Input
+                  placeholder='Bairro'
+                  value={bairro}
+                  type='text'
+                  name='bairro'
+                  id='bairro'
+                  register={register}
+                  error={errors.bairro?.message}
+                  label='Bairro:'
+                />
 
-            <Input
-              placeholder='Bairro'
-              value={bairro}
-              type='text'
-              name='bairro'
-              id='bairro'
-              register={register}
-              error={errors.bairro?.message}
-              label='Bairro:'
-            />
+                <Input
+                  placeholder='Cidade'
+                  value={cidade}
+                  type='text'
+                  name='cidade'
+                  id='cidade'
+                  register={register}
+                  error={errors.cidade?.message}
+                  label='Cidade:'
+                />
 
-            <Input
-              placeholder='Cidade'
-              value={cidade}
-              type='text'
-              name='cidade'
-              id='cidade'
-              register={register}
-              error={errors.cidade?.message}
-              label='Cidade:'
-            />
+                <Input
+                  placeholder='Estado'
+                  value={estado}
+                  type='text'
+                  name='estado'
+                  id='estado'
+                  register={register}
+                  error={errors.estado?.message}
+                  label='Estado:'
+                />
 
-            <Input
-              placeholder='Estado'
-              value={estado}
-              type='text'
-              name='estado'
-              id='estado'
-              register={register}
-              error={errors.estado?.message}
-              label='Estado:'
-            />
+                <Input
+                  placeholder='Senha'
+                  type='password'
+                  name='password'
+                  id='password'
+                  register={register}
+                  error={errors.password?.message}
+                  label='Senha:'
+                  onChange={handlePasswordChange}
+                />
 
-            <Input
-              placeholder='Senha'
-              type='password'
-              name='password'
-              id='password'
-              register={register}
-              error={errors.password?.message}
-              label='Senha:'
-              onChange={handlePasswordChange}
-            />
-
-            <Input
-              placeholder='Confirmar Senha'
-              type='password'
-              name='confirm_password'
-              id='confirm_password'
-              register={register}
-              error={errors.confirm_password?.message}
-              label='Confirmar Senha:'
-            />
+                <Input
+                  placeholder='Confirmar Senha'
+                  type='password'
+                  name='confirm_password'
+                  id='confirm_password'
+                  register={register}
+                  error={errors.confirm_password?.message}
+                  label='Confirmar Senha:'
+                />
 
             <div className="w-full mt-2" id='progress' style={{display: 'none'}}>
                 <label>Força da Senha:</label>
@@ -274,20 +282,20 @@ export function Register() {
                 </div>
             </div>
 
-            
-
           </div>
-          <div className="justify-center items-center mt-10">
-              <button className="rounded-md bg-blue-600 py-3 px-6 border border-transparent text-center text-lg text-white transition-all shadow-md hover:shadow-lg focus:bg-blue-700 focus:shadow-none active:bg-blue-700 hover:bg-blue-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">
-                Cadastrar
-              </button>
-              <Link to='/login'>
-                <button className="rounded-md bg-green-600 py-3 px-6 border border-transparent text-center text-lg text-white transition-all shadow-md hover:shadow-lg focus:bg-green-700 focus:shadow-none active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">
-                  Voltar
+
+            <div className="flex justify-center mt-10">
+                <button type="submit" className="rounded-md bg-blue-600 py-3 px-6 border border-transparent text-center text-lg text-white transition-all shadow-md hover:shadow-lg focus:bg-blue-700 focus:shadow-none active:bg-blue-700 hover:bg-blue-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+                  Cadastrar
                 </button>
-              </Link>
             </div>
+          </form>
+          <div className='flex flex-col items-start'>
+            <Link to='/' className='text-sky-700 text-lg'>Voltar ao Site</Link>
+            <Link to='/login' className='text-sky-700 text-lg'>Já tem conta? Faça seu login!</Link>
+          </div>
         </div>
+        
         
       </div>
         <div className='justify-center items-center flex flex-1 gap-8 text-white mt-4'>
