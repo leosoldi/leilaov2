@@ -213,7 +213,7 @@ export function Register() {
                   register={register}
                   error={errors.celular?.message}
                   label='Celular:'
-                  onChange={handlePhoneChange} // Aplica a máscara ao campo de celular
+                  onChange={handlePhoneChange}
                 />  
 
 

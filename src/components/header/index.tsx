@@ -39,12 +39,7 @@ export function Header() {
                         />
                         <FiSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" color="#c057db" />
                     </div>
-                    {!loadingAuth && signed && (
-                        <div 
-                            className="relative mt-3 md:mt-0 cursor-pointer"
-                            onClick={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                        >   
+                   
                         <Link to="login">
                             <div className="p-3 flex items-center gap-2 font-bold">
                                 <FaCircleUser color="#ffff" size={30} />
@@ -53,37 +48,12 @@ export function Header() {
                         </Link>
                             
 
-                            {/* Menu suspenso */}
-                            {showMenu && (
-                                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2">
-                                    <Link to="/meus-dados" className="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100">
-                                        <FaUser className="mr-2" color='#9D3BAD' /> Meus Dados
-                                    </Link>
-                                    <Link to="/meus-leiloes" className="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100">
-                                        <FaGavel className="mr-2" color='#9D3BAD'/> Meus Leilões
-                                    </Link>
-                                    <Link to="/carrinho" className="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100">
-                                        <FaShoppingCart className="mr-2" color='#9D3BAD'/> Meu carrinho
-                                    </Link>
-                                    <Link to="/favoritos" className="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100">
-                                        <FaHeart className="mr-2" color='#9D3BAD'/> Favoritos
-                                    </Link>
-                                    <Link to="/carteira" className="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100">
-                                        <FaWallet className="mr-2" color='#9D3BAD' /> Carteira
-                                    </Link>
-                                    <Link to="/atendimento" className="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100">
-                                        <FaHeadset className="mr-2" color='#9D3BAD'/> Atendimento
-                                    </Link>
-                                    <Link to="/logout" className="flex items-center px-4 py-2 text-red-600 hover:bg-gray-100">
-                                        SAIR
-                                    </Link>
-                                </div>
-                            )}
+                           
+                          
                         </div>
-                    )}
-                </div>
+                
 
-                {/* Lado direito: Ícones de coração e carrinho */}
+                
                 <div className="flex items-center space-x-4 px-4 mt-4 md:mt-0 mb-1">
                     <Link to="/support">
                         <IoIosHeart size={30} color="#ffff" />

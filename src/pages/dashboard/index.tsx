@@ -1,13 +1,13 @@
 import { Container } from "../../components/container";
 import { Link } from "react-router-dom";
 import { DashboardHeader } from '../../components/panelHeader';
-import img_user from '../../assets/users-svgrepo-com.svg';
-import itens from '../../assets/list-menu-svgrepo-com.svg';
-import leilao from '../../assets/auction-svgrepo-com.svg';
-import money from '../../assets/money-transfer-svgrepo-com.svg';
-import admin from '../../assets/admin-with-cogwheels-svgrepo-com.svg';
-import mail from '../../assets/mail-message-chat-svgrepo-com.svg';
-import loading from '../../assets/loading-svgrepo-com.svg';
+import img_user from '../../assets/img_dashboard_admin/users-svgrepo-com.svg';
+import itens from '../../assets/img_dashboard_admin/list-menu-svgrepo-com.svg';
+import leilao from '../../assets/img_dashboard_admin/auction-svgrepo-com.svg';
+import money from '../../assets/img_dashboard_admin/money-transfer-svgrepo-com.svg';
+import admin from '../../assets/img_dashboard_admin/admin-with-cogwheels-svgrepo-com.svg';
+import mail from '../../assets/img_dashboard_admin/mail-message-chat-svgrepo-com.svg';
+import loading from '../../assets/img_dashboard_admin/loading-svgrepo-com.svg';
 
 export function Dashboard() {
   return ( 
