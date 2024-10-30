@@ -273,7 +273,7 @@ export function Register() {
                   error={errors.cidade?.message}
                   label='Cidade:'
                 />
-
+              
                 <Input
                   placeholder='Estado'
                   value={estado}
@@ -283,6 +283,26 @@ export function Register() {
                   register={register}
                   error={errors.estado?.message}
                   label='Estado:'
+                />
+
+                <Input
+                  placeholder='Número'
+                  value={estado}
+                  type='text'
+                  name='numero'
+                  id='numero'
+                  register={register}
+                  label='Número:'
+                />
+
+                <Input
+                  placeholder='Complemento'
+                  value={estado}
+                  type='text'
+                  name='complemento'
+                  id='complemento'
+                  register={register}
+                  label='Complemento:'
                 />
 
                 <Input
