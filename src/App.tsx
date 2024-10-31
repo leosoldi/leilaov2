@@ -9,6 +9,8 @@ import { Layout } from './components/layout';
 import { NotFound } from './components/error/NotFound';
 import { UnderConstruction } from './components/error/Manutencao'; 
 import { Usuarios } from "./pages/dashboard/usuarios";
+import { UserAdmin } from "./pages/dashboard/admin";
+import { RegisterLeilao } from "./pages/dashboard/leilao/register"
 
 
 const router = createBrowserRouter([
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/usuarios",
         element: <Usuarios />
+      },
+      {
+        path: "/dashboard/admin",
+        element: <UserAdmin />
+      },
+      {
+        path: "/dashboard/leilao/register",
+        element: <RegisterLeilao />
       },
       {
         path: "/support",

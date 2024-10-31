@@ -1,40 +1,45 @@
-import { ReactNode, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Container } from "../../../../components/container";
-import { DashboardHeader  } from '../../../../components/panelHeader'
-import { Input } from '../../../../components/input'
-import { GiBottomRight3dArrow } from "react-icons/gi";
+import { DashboardHeader } from '../../../../components/panelHeader';
+import { Input } from '../../../../components/input';
 import { FiUpload } from "react-icons/fi";
+import { IoTrashBin } from "react-icons/io5";
+
 import { useForm } from "react-hook-form";
 import { z } from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link } from 'react-router-dom';
-import { FaEdit } from "react-icons/fa";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import { AiOutlineZoomIn } from "react-icons/ai";
 import { ModalView } from './modalView';
 import { ModalDeleteItem } from './modalDelete';
 
-
-
 const schema = z.object({
-  category: z.string().nonempty("Categotia é Obrigatório"),
-  product: z.string().nonempty("Nome do Produto"),
-  description: z.string().nonempty("Descrição é Obrigatório"),
+  category: z.string().nonempty("Categoria é Obrigatória"),
+  product: z.string().nonempty("Nome do Produto é Obrigatório"),
+  description: z.string().nonempty("Descrição é Obrigatória"),
   price: z.string().nonempty("Valor é Obrigatório"),
-})
+});
 
 type FormData = z.infer<typeof schema>;
+interface ImageItemProps {
+  uid: string;
+  name: string;
+  previewUrl: string;
+  url: string;
+}
 
 export function RegisterItem() {
-  const {register, handleSubmit, formState: {errors}, reset} = useForm<FormData>({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
     resolver: zodResolver(schema),
     mode: "onChange"
-  })
-
+  });
 
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [viewData, setViewData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [itemImages, setItemImages] = useState<ImageItemProps[]>([]);
+  const [coverImageUid, setCoverImageUid] = useState<string | null>(null); // Estado para imagem de capa
 
   function onSubmit(data: FormData) {
     console.log(data);
@@ -60,9 +65,40 @@ export function RegisterItem() {
   function confirmDelete() {
     setIsConfirmModalOpen(false); // Fecha o modal de confirmação
     console.log("Item excluído");
-    // Coloque aqui a lógica para excluir o item
   }
 
+  function handleFile(e: ChangeEvent<HTMLInputElement>) {
+    if (e.target.files && e.target.files[0]) {
+      const image = e.target.files[0];
+      const reader = new FileReader();
+  
+      reader.onload = () => {
+        if (reader.result) {
+          const newImage: ImageItemProps = {
+            uid: new Date().toISOString(),
+            name: image.name,
+            previewUrl: reader.result.toString(),
+            url: "",
+          };
+          setItemImages([...itemImages, newImage]);
+        }
+      };
+  
+      reader.readAsDataURL(image);
+    }
+  }
+
+  function handleDeleteImage(item: ImageItemProps) {
+    setItemImages(itemImages.filter((img) => img.uid !== item.uid));
+    if (coverImageUid === item.uid) {
+      setCoverImageUid(null); // Remove a seleção de capa se a imagem for deletada
+    }
+  }
+
+  function handleCoverSelection(uid: string) {
+    setCoverImageUid(uid);
+  }
+  
   return (
    <div>
     <Container>
@@ -75,9 +111,33 @@ export function RegisterItem() {
               <FiUpload size={40} color="#000" />
             </div>
             <div className="cursor-pointer">
-              <input type="file" accept="image/*" className="opacity-0 cursor-pointer" />
+              <input type="file" accept="image/*" className="opacity-0 cursor-pointer" onChange={handleFile} />
             </div>
           </button>
+
+          {/* Exibição das imagens com opção de excluir e definir capa */}
+          {itemImages.map(item => (
+            <div key={item.uid} className="relative w-32 h-32">
+              <button className="absolute top-1 right-1 bg-red-500 p-1 rounded-full" onClick={() => handleDeleteImage(item)}>
+                <IoTrashBin size={20} color="#FFF" />
+              </button>
+
+              <img src={item.previewUrl} className="rounded-lg w-full h-full object-cover" alt="Foto Produto" />
+              
+              {/* Checkbox estilizado para definir como imagem de capa */}
+              <label className="absolute bottom-1 left-1 flex items-center bg-white rounded-full p-1 px-2 shadow-md cursor-pointer">
+                <input
+                  type="checkbox"
+                  className="hidden"
+                  checked={coverImageUid === item.uid}
+                  onChange={() => handleCoverSelection(item.uid)}
+                />
+                <span className={`w-4 h-4 mr-1 rounded-full border-2 ${coverImageUid === item.uid ? "bg-blue-500 border-blue-500" : "border-gray-400"}`} />
+                <span className="text-xs font-medium">Capa</span>
+              </label>
+            </div>
+          ))}
+
        </div>
 
        <div className="w-full bg-white shadow-sm rounded-lg flex flex-col sm:flex-row item-center gap-2 ">
@@ -86,10 +146,10 @@ export function RegisterItem() {
                 <div className="relative">
                   <select
                       className="w-full p-3 pl-5 border border-gray-300 rounded-full">
-                      <option value="brazil">Smartphone</option>
-                      <option value="bucharest">Tablets</option>
-                      <option value="london">Tv</option>
-                      <option value="washington">SmartWatch</option>
+                      <option value="smartphone">Smartphone</option>
+                      <option value="tablet">Tablets</option>
+                      <option value="tv">Tv</option>
+                      <option value="smartwatch">SmartWatch</option>
                   </select>
                 </div>
 
@@ -127,7 +187,7 @@ export function RegisterItem() {
                 />
 
                 <div className="mt-4 justify-center items-center flex p-5">
-                  <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Salvar Produto</button>
+                  <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Salvar Produto</button>
                     <Link to="/dashboard">
                         <button className="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-3 text-center me-2 mb-2 dark:focus:ring-yellow-900">Voltar</button>
                     </Link>
