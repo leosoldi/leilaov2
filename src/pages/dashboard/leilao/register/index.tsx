@@ -167,13 +167,16 @@ export function RegisterLeilao() {
                 <hr />
                 <p className="text-lg bg-yellow-200 text-gray-600">Valor Inscrição: <span className="font-semibold text-gray-800">R$ {valorInscricao}</span></p>
                 <hr />
+                <p className="text-lg bg-indigo-200 text-gray-600"><span className="font-semibold text-gray-800">{numeroMaxParticipantes}</span>
+                    Participantes
+                </p>
                 {inicioData && (
                     <div>
                         <p className="font-semibold">Inicio:</p>
                         <p className="text-lg bg-indigo-200 text-gray-600"><span className="font-semibold text-gray-800">{inicioData} às {horaInicio}</span></p>
                         <p>OU</p>
                         <p className="text-lg bg-indigo-200 text-gray-600"><span className="font-semibold text-gray-800">{numeroMaxParticipantes}</span>
-                         Participantes
+                            Participantes
                         </p>
                     </div>
                 )}
