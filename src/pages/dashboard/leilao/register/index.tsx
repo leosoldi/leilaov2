@@ -159,7 +159,6 @@ export function RegisterLeilao() {
               <img src={smart} alt="" className="w-36 h-36 object-cover rounded-md shadow-md" />
               <p className="mt-4 text-lg font-bold text-gray-800">iPhone 16 Apple 128GB, Tela 6,1", Black</p>
               <div className="text-center mt-4 rounded-lg p-4 w-full">
-                <p className="text-lg bg-slate-200 text-gray-600">#Id: <span className="font-semibold text-gray-800">40</span></p>
                 <hr />
                 <p className="text-lg bg-green-200 text-gray-600">Valor Original: <span className="font-semibold text-gray-800">R$ {valorOriginal}</span></p>
                 <hr />
@@ -167,9 +166,14 @@ export function RegisterLeilao() {
                 <hr />
                 <p className="text-lg bg-yellow-200 text-gray-600">Valor Inscrição: <span className="font-semibold text-gray-800">R$ {valorInscricao}</span></p>
                 <hr />
-                <p className="text-lg bg-indigo-200 text-gray-600"><span className="font-semibold text-gray-800">{numeroMaxParticipantes} </span>
-                     Participantes
-                </p>
+                {!!!inicioData &&   (
+                    <div>
+                        <p className="text-lg bg-indigo-200 text-gray-600"><span className="font-semibold text-gray-800">{numeroMaxParticipantes} </span>
+                            Participantes
+                        </p>
+                    </div>
+                )}
+                
                 {inicioData && (
                     <div>
                         <p className="font-semibold">Inicio:</p>
