@@ -33,12 +33,14 @@ export function RegisterLeilao() {
   const [valorOriginal, setValorOriginal] = useState(0); // valor original do produto
   const [lucroAdicionar, setLucroAdicionar] = useState(20); // lucro adicional em porcentagem
   const [numParticipantes, setNumParticipantes] = useState(0.20); // número de participantes em proporção (20%)
+  const [valorLucro, setValorLucro] = useState(0)
   const [inicioData, setDataInicio] = useState(""); // data de início
   const [horaInicio, setHoraInicio] = useState(""); // hora de início
 
   // Calculando o valor final com o lucro adicional
   const valorComLucro = valorOriginal + (valorOriginal * lucroAdicionar / 100);
-
+  console.log(valorComLucro)
+  
   // Calculando o número máximo de participantes
   const numeroMaxParticipantes = Math.floor(valorComLucro * numParticipantes);
 
@@ -160,7 +162,8 @@ export function RegisterLeilao() {
               <p className="mt-4 text-lg font-bold text-gray-800">iPhone 16 Apple 128GB, Tela 6,1", Black</p>
               <div className="text-center mt-4 rounded-lg p-4 w-full">
                 <hr />
-                <p className="text-lg bg-green-200 text-gray-600">Valor Original: <span className="font-semibold text-gray-800">R$ {valorOriginal}</span></p>
+                <p className="text-lg bg-green-200 text-gray-600">Valor com Lucro: <span className="font-semibold text-gray-800">R$ {valorComLucro}</span></p>
+
                 <hr />
                 <p className="text-lg bg-green-200 text-gray-600">Lucro Adicional: <span className="font-semibold text-gray-800">{lucroAdicionar}%</span></p>
                 <hr />
