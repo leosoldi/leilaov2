@@ -62,14 +62,14 @@ export function DashboardHeader() {
                 {isAuctionDropdownOpen && (
                     <div className="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg rounded-lg z-50">
                         <Link
-                            to="/dashboard/leilao/cadastrar"
+                            to="/dashboard/leilao/register"
                             className="block px-4 py-2 hover:bg-blue-200 transition"
                             onClick={() => setAuctionDropdownOpen(false)}
                         >
                             Cadastrar
                         </Link>
                         <Link
-                            to="/dashboard/leilao/administrar"
+                            to="/dashboard/"
                             className="block px-4 py-2 hover:bg-blue-200 transition"
                             onClick={() => setAuctionDropdownOpen(false)}
                         >
