@@ -179,7 +179,7 @@ export function RegisterLeilao() {
                         <p className="font-semibold">Inicio:</p>
                         <p className="text-lg bg-indigo-200 text-gray-600"><span className="font-semibold text-gray-800">{inicioData} às {horaInicio}</span></p>
                         <p>OU</p>
-                        <p className="text-lg bg-indigo-200 text-gray-600"><span className="font-semibold text-gray-800">{numeroMaxParticipantes}</span>
+                        <p className="text-lg bg-indigo-200 text-gray-600"><span className="font-semibold text-gray-800">{numeroMaxParticipantes} </span>
                             Participantes
                         </p>
                     </div>
