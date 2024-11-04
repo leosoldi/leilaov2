@@ -11,6 +11,8 @@ import { UnderConstruction } from './components/error/Manutencao';
 import { Usuarios } from "./pages/dashboard/usuarios";
 import { UserAdmin } from "./pages/dashboard/admin";
 import { RegisterLeilao } from "./pages/dashboard/leilao/register"
+import { AdministrarLeilao } from './pages/dashboard/leilao/administrar'
+import { DetailLeilao } from "./pages/dashboard/leilao/administrar/detail";
 
 
 const router = createBrowserRouter([
@@ -45,6 +47,16 @@ const router = createBrowserRouter([
         path: "/dashboard/leilao/register",
         element: <RegisterLeilao />
       },
+      {
+        path: "/dashboard/leilao/administrar",
+        element: <AdministrarLeilao />
+      },
+      {
+        path: "/dashboard/leilao/administrar/detail.tsx",
+        element: <DetailLeilao />
+      },
+      
+      
       {
         path: "/support",
         element: <UnderConstruction />
