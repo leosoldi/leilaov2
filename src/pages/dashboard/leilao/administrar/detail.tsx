@@ -166,7 +166,7 @@ export function DetailLeilao() {
                 <div className="w-full md:w-1/2 bg-white shadow-lg rounded-lg p-6 flex flex-col" style={{ height: '100%' }}>
                     <h2 className="text-xl font-semibold mb-4 flex items-center gap-2 justify-between">
                         <span className="flex items-center gap-1"><AiOutlineInfoCircle className="text-indigo-500" />Lances e Histórico</span>
-                        <span className="flex items-center gap-1"><FaClock /> {formatTimeLeft()} finaliza</span>
+                        <span className="flex items-center gap-1"><FaClock /> {formatTimeLeft()}</span>
                     </h2>
 
                     {/* Aviso de vencedor */}
