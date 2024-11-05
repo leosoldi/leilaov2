@@ -6,30 +6,41 @@ import relogio from '../../../../assets/smarthphones/relogio.png';
 import tv from '../../../../assets/smarthphones/tv.png'
 import ps5 from '../../../../assets/smarthphones/ps5.png'
 import { Link } from "react-router-dom";
+import {FiSearch} from 'react-icons/fi';
+
 
 
 function calculateDaysRemaining(startDate: string | Date): string {
-    const currentDate = new Date();
-    const targetDate = new Date(startDate);
-    const timeDiff = targetDate.getTime() - currentDate.getTime(); // Use getTime() to ensure numbers
-    const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+    const  currentDate = new Date();
+    const  targetDate = new Date(startDate);
+    const  timeDiff = targetDate.getTime() - currentDate.getTime();
+    const  daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
     return daysRemaining > 0 ? `${daysRemaining} dias restantes` : 'Iniciado';
 }
 
 
 
 export function AdministrarLeilao() {
-    const startDate = '2024-11-25';
+    const startDate = '2024-11-30';
 
     // Estado para contagem regressiva
     const [daysRemaining, setDaysRemaining] = useState(calculateDaysRemaining(startDate));
+    const [inputSearch, setInputSearch] = useState("");
 
     useEffect(() => {
         const interval = setInterval(() => {
             setDaysRemaining(calculateDaysRemaining(startDate));
-        }, 86400000); // Atualiza a cada dia (em milissegundos)
+        }, 86400000); 
         return () => clearInterval(interval);
     }, [startDate]);
+
+    function handleFilterStatus(e: string) {
+        setInputSearch(e)
+    }
+
+    function handleInputFilter() {
+
+    }
 
     return (
         <Container>
@@ -38,7 +49,22 @@ export function AdministrarLeilao() {
             <div className="justify-center items-center">
                 <div className="font-medium text-center text-2xl mb-5 mt-5">Administrar Leilão</div>
 
-                <div className="relative overflow-x-auto shadow-lg sm:rounded-lg">
+                <div className="justify-between items-center flex mb-5 mt-5">
+                    
+                    <div className="gap-3 flex">
+                        <button className="p-2 bg-gray-400 text-white font-medium rounded-lg text-center"   onClick={(e) => handleFilterStatus((e.target as HTMLInputElement).value)} value="Aguardando">Aguardando</button>
+                        <button className="p-2 bg-green-500 text-white font-medium rounded-lg text-center"  onClick={(e) => handleFilterStatus((e.target as HTMLInputElement).value)} value="Andamento">Em Andamento</button>
+                        <button className="p-2 bg-orange-400 text-white font-medium rounded-lg text-center" onClick={(e) => handleFilterStatus((e.target as HTMLInputElement).value)} value="Finalizado">Finalizado</button>
+                        <button className="p-2 bg-red-400 text-white font-medium rounded-lg text-center"    onClick={(e) => handleFilterStatus((e.target as HTMLInputElement).value)} value="suspenso">Suspenso</button>
+                    </div>
+
+                    <div className="relative">
+                        <FiSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" color="#000" />
+                        <input type="text" className="p-2 pr-10 rounded-lg border border-gray-300" placeholder="Pesquisar" onChange={() => handleInputFilter} value={inputSearch} />
+                    </div>                    
+                </div>
+
+                <div className="relative overflow-y-auto shadow-lg sm:rounded-lg">
                     <table className="w-full text-sm text-left text-gray-500 bg-white">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-100">
                             <tr>

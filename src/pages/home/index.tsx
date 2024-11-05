@@ -71,7 +71,7 @@ export function Home() {
                     -{product.discount}%
                   </div>
                 </div>
-                <p 
+                <p  
                   className="font-extrabold text-2xl bg-clip-text text-transparent" 
                   style={{ 
                     backgroundImage: 'linear-gradient(90deg, rgba(58, 51, 176) 70%, rgba(136, 132, 224) 50%, rgba(58, 51, 176) 100%)', 
@@ -87,29 +87,29 @@ export function Home() {
         </div>
       </Container>
 
-      {/* Categorias */}
-      <section className=" mt-5 p-5 mx-auto px-4 rounded-md max-w-7xl" style={{ backgroundColor: '#fefafa' }}>
-        <div className="flex flex-1 justify-center items-center mb-5 mt-3 text-2xl font-bold gap-10">
-          <FaTv size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Smart TV"/>
-          <LuBedSingle size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Tudo para Seu Quarto"/>
-          <GiDeliveryDrone size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Drones"/>
-          <RiWebcamLine size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Webcan"/>
-          <FcSmartphoneTablet size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Tablets"/>
-          <MdSportsSoccer size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Esportes e Lazer"/>
-            <span className="text-center" style={{ color: '#3131a4' }}>Categorias</span>
-          <PiSecurityCameraFill size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Cameras e Segurança"/>
-          <GiConsoleController size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Games'/>
-          <GiProcessor size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Periféricos'/>
-          <GiSmartphone size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Smarthphones'/>
-          <BsSmartwatch size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='SmarthWatch'/>
-          <FaTools size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Ferramentas'/>
-          <FaBath size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Banho'/>
-        </div>
-      </section>
+      
+   {/*  <section className=" mt-5 p-5 mx-auto px-4 rounded-md max-w-7xl" style={{ backgroundColor: '#fefafa' }}>
+       <div className="flex flex-1 justify-center items-center mb-5 mt-3 text-2xl font-bold gap-10">
+         <FaTv size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Smart TV"/>
+         <LuBedSingle size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Tudo para Seu Quarto"/>
+         <GiDeliveryDrone size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Drones"/>
+         <RiWebcamLine size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Webcan"/>
+         <FcSmartphoneTablet size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Tablets"/>
+         <MdSportsSoccer size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Esportes e Lazer"/>
+           <span className="text-center" style={{ color: '#3131a4' }}>Categorias</span>
+         <PiSecurityCameraFill size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title="Cameras e Segurança"/>
+         <GiConsoleController size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Games'/>
+         <GiProcessor size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Periféricos'/>
+         <GiSmartphone size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Smarthphones'/>
+         <BsSmartwatch size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='SmarthWatch'/>
+         <FaTools size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Ferramentas'/>
+         <FaBath size={50} className="rounded-full bg-blue-600 p-2 duration-300 ease-in-out transform hover:scale-105" color="#ffff" title='Banho'/>
+       </div>
+     </section>*/}
 
 
       {/* Leilões Ativos */}
-      <div className="container mt-5 p-5 mx-auto px-4 rounded-md max-w-7xl" style={{ backgroundColor: '#fefafa' }}>
+      <div className="container mt-5 p-5 mx-auto px-4 rounded-md max-w-8xl" style={{ backgroundColor: '#fefafa' }}>
         <div className="flex justify-center items-center mb-5 mt-3 text-2xl md:text-4xl font-bold">
           <span className="text-center" style={{ color: '#3131a4' }}>Leilões Ativos</span>
         </div>
