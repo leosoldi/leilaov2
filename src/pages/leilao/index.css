@@ -1,0 +1,52 @@
+.carousel .thumbs {
+    display: flex; /* Garante que estejam em linha */
+    flex-direction: row; /* Alinha horizontalmente */
+    justify-content: center; /* Centraliza no contêiner */
+    margin-top: 10px; /* Espaçamento superior */
+}
+
+.carousel .slide img {
+    width: 100%; /* Garante que a largura ocupe todo o espaço disponível */
+    height: 250px; /* Define uma altura fixa para as imagens */
+    object-fit: contain; /* Ajusta a imagem dentro do espaço sem cortar nem distorcer */
+    display: block; /* Remove espaços indesejados ao redor das imagens */
+}
+
+
+.carousel .thumb {
+    width: 40px; /* Largura */
+    height: 40px; /* Altura */
+    object-fit: cover; /* Preenche sem distorcer */
+    display: flex; /* Ativa o Flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    margin: 0 5px; /* Espaçamento entre thumbnails */
+    overflow: hidden; /* Impede que exceda as bordas */
+    border-radius: 20%; /* Deixa a borda totalmente arredondada */
+    border: 2px solid #ddd; /* Adiciona uma borda leve */
+    transition: border-color 0.3s ease; /* Transição suave para hover */
+    padding: -30px;
+}
+
+.carousel .thumb:hover {
+    border-color: #7e3af2; /* Cor da borda ao passar o mouse */
+}
+
+
+
+.carousel-container {
+    position: relative; /* Garante que elementos internos possam ser posicionados */
+}
+
+.carousel-container .frete-gratis-badge {
+    position: absolute;
+    top: 10px; /* Ajuste a posição vertical */
+    left: 10px; /* Ajuste a posição horizontal */
+    background: linear-gradient(90deg, rgba(58, 51, 176) 20%, rgba(136, 132, 224) 70%, rgba(58, 51, 176) 100%);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}

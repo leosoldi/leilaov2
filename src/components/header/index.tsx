@@ -64,7 +64,7 @@ export function Header() {
                     <Link to="/support">
                         <FiShoppingCart size={30} color="#ffff" />
                     </Link>
-                    <Link to="/support">
+                    <Link to="/leilao">
                         <TfiHeadphoneAlt size={30} color="#ffff" />
                     </Link>
                 </div>

@@ -13,6 +13,7 @@ import { UserAdmin } from "./pages/dashboard/admin";
 import { RegisterLeilao } from "./pages/dashboard/leilao/register"
 import { AdministrarLeilao } from './pages/dashboard/leilao/administrar'
 import { DetailLeilao } from "./pages/dashboard/leilao/administrar/detail";
+import  { Leilao }  from './pages/leilao/';
 
 
 const router = createBrowserRouter([
@@ -52,8 +53,8 @@ const router = createBrowserRouter([
         element: <AdministrarLeilao />
       },
       {
-        path: "/dashboard/leilao/administrar/detail.tsx",
-        element: <DetailLeilao />
+        path: "/leilao",
+        element: <Leilao />
       },
       
       
